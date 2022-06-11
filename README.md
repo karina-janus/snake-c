@@ -45,7 +45,7 @@ Game Over:
 ### Opis funkcji:
 
 - setup() - jest to funkcja, która tworzy grę: zbiera dane nt. najwyższego wyniku, tworzy węża długiego na 5 segmentów i kieruje go w prawo i ustawia grę na ON.
-- gameover() - jest to funkcja, która jest wywoływana podczas zakończenia gry. Włącza alert (\a) i wyświetla ekran końca gry: duży napis "Game Over!", wynik oraz dalsze opcje - restart gry lub jej wyłączenie.
+- gameover() - jest to funkcja, która jest wywoływana podczas zakończenia gry. Włącza alert (\a) i wyświetla ekran końca gry: duży napis "Game Over!" (ascii-art znaleziony na internecie), wynik oraz dalsze opcje - restart gry lub jej wyłączenie.
 - widok() - prosta funkcja która wyświetla na ekranie: ramkę, węża, buźkę (jabłko) oraz wyniki: aktualny i najwyższy zapisany.
 - random() - jest to funkcja wywoływana w celu wygenerowania buźki (jabłka). Za pomocą srand() generuje losową pozycję (X i Y), następnie sprawdza, czy ta pozycja jest w ramce oraz czy nie nachodzi na węża - jeśli nie, buźka (jabłko) jest generowane w tej pozycji.
 - ruch() - funkcja odpowiadająca za ruch węża. Za pomocą funkcji getch_noblock() sprawdza aktualnie wciśnięte klawisze i kieruje węża w odpowiednim kierunku. Odpowiada także za kolizję - jeśli wąż wjedzie w buźkę (jabłko), zwiększy się o 1 segment, a gdy wjedzie w samego siebie lub ramkę, kończy grę.
