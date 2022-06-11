@@ -1,0 +1,65 @@
+<html><head><style>body {
+   color: black;
+   width: 50%;
+   font-size: 1.5em;
+   font-family:'Arial, Helvetica, sans-serif';
+   margin-left: 25%;
+}
+</style>
+<link rel="icon" type="image/x-icon" href="gameIcon.ico">
+</head><body><br><h2 id="snake-napisany-w-c-">Snake napisany w C++</h2>
+<p>Projekt zaliczeniowy na przedmiot Wstęp Do Programowania, rok 2021/2022</p>
+<p>Projekt jest umieszczony na <a href="https://github.com/karina-janus/snake-c">githubie</a>.</p>
+<h3 id="spis-tre-ci-">Spis treści:</h3>
+<ul>
+<li><a href="#o-projekcie">O projekcie</a></li>
+<li><a href="#instrukcje">Instrukcje</a></li>
+<li><a href="#screenshoty">Screenshoty</a></li>
+<li><a href="#opis-funkcji">Opis funkcji</a></li>
+<li><a href="#pliki">Pliki</a></li>
+<li><a href="#wykonanie">Wykonanie</a></li>
+</ul>
+<h3 id="o-projekcie-">O projekcie:</h3>
+<p>Projekt to odwzorowanie klasycznej gry - Snake - w C++. Gra jest stworzona przy użyciu biblioteki <a href="https://en.wikipedia.org/wiki/Conio.h">conio</a>, 
+przy pomocy której wyświetlamy grę na ekranie konsoli. Sama gra jest prosta: zaczynamy z wężem długim na 5 segmentów. Jedząc buźki (w oryginale jabłka) 
+zwiększamy rozmiar węża. Jeśli wjedziemy w ramę gry lub w samego węża przegrywamy.
+Na koniec gry wyświetla się nasz wynik i jest on porównywany z zapisanym (w pliku maxwynik.txt) największym wynikiem. Jeśli aktualny wynik jest większy od poprzedniego, lub większy 
+od 100, program wyświetla gratulacje.</p>
+<h3 id="instrukcje-">Instrukcje:</h3>
+<p>Kod źródłowy programu znajduje się w pliku <strong>main.cpp</strong>. Program wykorzystuje bibliotekę <a href="https://en.wikipedia.org/wiki/Conio.h">conio</a>, więc działa wyłącznie na windowsie i nie będzie mógł się skompilować na innych systemach operacyjnych.
+Skompilowany, gotowy do uruchomienia program jest w pliku <strong>snake.exe</strong>.</p>
+<h3 id="screenshoty-">Screenshoty:</h3>
+<p>Gra: </p>
+<p><img src="https://user-images.githubusercontent.com/107310262/173195346-db88beeb-00ca-4d93-a036-f49a5b7d4055.png" alt="Image"></p>
+<p>Dłuuugi snake: </p>
+<p><img src="https://user-images.githubusercontent.com/107310262/173195304-c80664a7-b5ed-42d6-8d0d-ea066c746df2.png" alt="Image"></p>
+<p>Najlepszy wynik: </p>
+<p><img src="https://user-images.githubusercontent.com/107310262/173195321-7e73acf5-42bd-4b21-9d03-5f5b167e756d.png" alt="Image"></p>
+<p>Game Over: </p>
+<p><img src="https://user-images.githubusercontent.com/107310262/173195336-fedd656c-d8c7-49e0-a3e4-7c430db2cfcc.png" alt="Image"></p>
+<h3 id="opis-funkcji-">Opis funkcji:</h3>
+<ul>
+<li>setup() - jest to funkcja, która tworzy grę: zbiera dane nt. najwyższego wyniku, tworzy węża długiego na 5 segmentów i kieruje go w prawo i ustawia grę na ON.</li>
+<li>gameover() - jest to funkcja, która jest wywoływana podczas zakończenia gry. Włącza alert (\a) i wyświetla ekran końca gry: duży napis &quot;Game Over!&quot;, wynik oraz dalsze opcje - restart gry lub jej wyłączenie.</li>
+<li>widok() - prosta funkcja która wyświetla na ekranie: ramkę, węża, buźkę (jabłko) oraz wyniki: aktualny i najwyższy zapisany.</li>
+<li>random() - jest to funkcja wywoływana w celu wygenerowania buźki (jabłka). Za pomocą srand() generuje losową pozycję (X i Y), następnie sprawdza, czy ta pozycja jest w ramce oraz czy nie nachodzi na węża - jeśli nie, buźka (jabłko) jest generowane w tej pozycji.</li>
+<li>ruch() - funkcja odpowiadająca za ruch węża. Za pomocą funkcji getch_noblock() sprawdza aktualnie wciśnięte klawisze i kieruje węża w odpowiednim kierunku. Odpowiada także za kolizję - jeśli wąż wjedzie w buźkę (jabłko), zwiększy się o 1 segment, a gdy wjedzie w samego siebie lub ramkę, kończy grę.</li>
+<li>ogonek() - funkcja przesuwająca ogon węża.</li>
+<li>reset() i getch_noblock() - funkcje, które zarządzają oknem (sprawiają, że się nie porusza) oraz sprawdza jakie klawisze są wciśnięte.</li>
+</ul>
+<h3 id="pliki-">Pliki:</h3>
+<ul>
+<li>main.cpp - plik zawierający kod źródłowy</li>
+<li>gameIcon.ico - ikona gry</li>
+<li>resource.rc - plik zasobów (ustawia ikonę gry)</li>
+<li>snake.exe - skompilowana gra</li>
+<li>dokumentacja.html - ta dokumentacja zapisana w pliku .html</li>
+</ul>
+<h3 id="wykonanie-">Wykonanie:</h3>
+<p>Program został wykonany przez</p>
+<ul>
+<li><a href="mailto:karina.janus@student.uj.edu.pl">Karina Janus</a></li>
+<li><a href="mailto:julia.siatka@student.uj.edu.pl">Julia Siatka</a></li>
+</ul>
+<br><br><br>
+</body></html>
