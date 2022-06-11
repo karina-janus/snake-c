@@ -103,8 +103,8 @@ void widok(){
 			}
 		}
 	}
-	printf("Twój wynik:%d\n",wynik);
-	printf("Twój najwyzszy wynik:%d",maxwynik);
+	printf("Twoj wynik:%d\n",wynik);
+	printf("Twoj najwyzszy wynik:%d",maxwynik);
 }
 //pozycja buzi
 struct buzia{
