@@ -58,6 +58,7 @@ Game Over:
 - gameIcon.ico - ikona gry
 - resource.rc - plik zasobów (ustawia ikonę gry)
 - snake.exe - skompilowana gra
+- dokumentacja.html - ta dokumentacja zapisana w pliku .html
 
 ### Wykonanie:
 Program został wykonany przez
