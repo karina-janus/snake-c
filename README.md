@@ -4,6 +4,7 @@ Projekt zaliczeniowy na przedmiot Wstęp Do Programowania, rok 2021/2022
 Projekt jest umieszczony na [githubie](https://github.com/karina-janus/snake-c).
 ### Spis treści:
 - [O projekcie](#o-projekcie)
+- [Instrukcje](#instrukcje)
 - [Screenshoty](#screenshoty)
 - [Opis funkcji](#opis-funkcji)
 - [Pliki](#pliki)
@@ -17,6 +18,9 @@ zwiększamy rozmiar węża. Jeśli wjedziemy w ramę gry lub w samego węża prz
 Na koniec gry wyświetla się nasz wynik i jest on porównywany z zapisanym (w pliku maxwynik.txt) największym wynikiem. Jeśli aktualny wynik jest większy od poprzedniego, lub większy 
 od 100, program wyświetla gratulacje.
 
+### Instrukcje:
+Kod źródłowy programu znajduje się w pliku **main.cpp**. Program wykorzystuje bibliotekę [conio](https://en.wikipedia.org/wiki/Conio.h), więc działa wyłącznie na windowsie i nie będzie mógł się skompilować na innych systemach operacyjnych.
+Skompilowany, gotowy do uruchomienia program jest w pliku **snake.exe**.
 
 ### Screenshoty:
 
@@ -40,6 +44,13 @@ Game Over:
 
 ### Opis funkcji:
 
+- setup() - jest to funkcja, która tworzy grę: zbiera dane nt. najwyższego wyniku, tworzy węża długiego na 5 segmentów i kieruje go w prawo i ustawia grę na ON.
+- gameover() - jest to funkcja, która jest wywoływana podczas zakończenia gry. Włącza alert (\a) i wyświetla ekran końca gry: duży napis "Game Over!", wynik oraz dalsze opcje - restart gry lub jej wyłączenie.
+- widok() - prosta funkcja która wyświetla na ekranie: ramkę, węża, buźkę (jabłko) oraz wyniki: aktualny i najwyższy zapisany.
+- random() - jest to funkcja wywoływana w celu wygenerowania buźki (jabłka). Za pomocą srand() generuje losową pozycję (X i Y), następnie sprawdza, czy ta pozycja jest w ramce oraz czy nie nachodzi na węża - jeśli nie, buźka (jabłko) jest generowane w tej pozycji.
+- ruch() - funkcja odpowiadająca za ruch węża. Za pomocą funkcji getch_noblock() sprawdza aktualnie wciśnięte klawisze i kieruje węża w odpowiednim kierunku. Odpowiada także za kolizję - jeśli wąż wjedzie w buźkę (jabłko), zwiększy się o 1 segment, a gdy wjedzie w samego siebie lub ramkę, kończy grę.
+- ogonek() - funkcja przesuwająca ogon węża.
+- reset() i getch_noblock() - funkcje, które zarządzają oknem (sprawiają, że się nie porusza) oraz sprawdza jakie klawisze są wciśnięte.
 
 ### Pliki:
 
