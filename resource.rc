@@ -1,0 +1,4 @@
+//definiujemy zasoby
+#define _resource_rc
+//ikona programu to plik "gameIcon.ico"
+MAINICON ICON "gameIcon.ico"
