@@ -9,8 +9,15 @@ const int wiersze=25; //tylko 25, bo pod snake znajduja sie wyniki
 const int kolumny=80;
 //deklaracje
 int i,j,x,y,pole[wiersze][kolumny],glowa,ogon,gloway,gra,buzia,klawisz,kierunek,ramka,wynik,maxwynik;
-
 FILE *plik;
+
+//snejk rusza sie nawet bez wciskania klawiszy, pobiera jeden char z klawiatury)
+int getch_noblock(){
+	if(_kbhit()){
+		return _getch();
+	} else return -1;
+}
+
 //funkcja tworzaca gre
 void setup(){
 	//pobieramy wyniki
@@ -26,7 +33,7 @@ void setup(){
 	//pozycja glowy
 	gloway=y;
 	//gra=1 - czyli gra trwa
-	gra=1;
+	//gra=1;
 	//zaczynamy bez buzi (w klasycznym snake - jablko)
 	buzia=0;
 	//snejk skierowany w prawo gdy rozpoczniemy gre
@@ -45,6 +52,29 @@ void setup(){
 		pole[x][gloway]=i+1;
 	}
 }
+
+//czekamy az gracz zacznie gre
+void start(){
+    printf("\n\n\t\t\t\tNacisnij [enter] by zagrac w gre");
+	printf("\n\n\t\t\t\tNacisnij [escape] by zakonczyc gre");
+	//dopóki gra jest "wylaczona"
+	while(1){
+		klawisz=getch_noblock();
+		//enter - gramy
+		if(klawisz==13){
+			gra=1;
+			setup();
+			break;
+		}
+		//esc - koniec
+		else if(klawisz==27){
+			gra=0;
+			break;
+		}
+	}
+	system("cls");
+}
+
 //ta funkcja sprawia, ze ekran nie ucieka
 void reset(){
 	HANDLE hOut;
@@ -98,7 +128,7 @@ void widok(){
 				}
 				//buzia
 				else if(pole[j][i]==-1){
-					printf("%c",2);
+					printf("%c",1);
 				}
 			}
 		}
@@ -125,12 +155,7 @@ void random(){
 		buzia=1;
 	}
 }
-//snejk rusza sie nawet bez wciskania klawiszy, pobiera jeden char z klawiatury)
-int getch_noblock(){
-	if(_kbhit()){
-		return _getch();
-	}else return -1;
-}
+
 //funkcja na koniec gry
 void gameover(){
 	printf("\a"); //alert dzwiekowy
@@ -148,7 +173,7 @@ void gameover(){
 		fprintf(plik,"%d",wynik);
 		fclose(plik);
 	}
-	if(wynik>100){
+	if(wynik>=100){
 	printf("\n\n\t\t\t\tWynik: %d. Gratulacje",wynik);}
 	else{
 	printf("\n\n\t\t\t\tWynik: %d",wynik);}
@@ -176,27 +201,27 @@ void gameover(){
 void ruch(){
 	//pobieranie z klawiatury
 	klawisz=getch_noblock();
-	//tolower sprawia, ¿e zadzia³a gdy u¿yjemy duzych liter
+	//tolower sprawia, ze zadziala gdy uzyjemy duzych liter
 	klawisz=tolower(klawisz);
-	//jeœli klikniemy awsd to w t¹ stronê bêdzie iœæ snejk
-	//funkcja abs mówi, ¿e snejk nie mo¿e z prawej iœæ do lewej ani z góry na dó³
+	//jesli klikniemy awsd to w te strone bedzie isc snejk
+	//funkcja abs mówi, ze snejk nie moze isc z prawej do lewej ani z góry na dol
 	if(((klawisz=='d'||klawisz=='a')||(klawisz=='s'||klawisz=='w'))&&(abs(kierunek-klawisz)>5)){
-		//klawisz który klikniemy jest kierunkiem
+		//klawisz ktory klikniemy jest kierunkiem
 		kierunek=klawisz;
 	}
 	//kierunki
 	if(kierunek=='d'){
-		//jeœli kierunek==d to snejk idzie w prawo
+		//jezli kierunek==d to snejk idzie w prawo
 		y++;
-		//jeœli snejk uderzy w siebie to gameover
+		//jezli snejk udezy w siebie to gameover
 		if(pole[x][y+5]!=0&&pole[x][y+5]!=-1){
 			gameover();
 		}
-		//jeœli snejk ude¿y w œcianê to gameover
+		//jezli snejk udezy w sciane to gameover
 		if(y+5==kolumny){
 			gameover();
 		}
-		//jeœli snejk trafi w buzie to ogon zwiêksza siê o jeden i wynik zwiêksza siê o 5
+		//jeœli snejk trafi w buzie to ogon zwieksza sie o jeden i wynik zwieksza sie o 5
 		if(pole[x][y+5]==-1){
 			buzia=0;
 			ogon--;
@@ -222,7 +247,7 @@ void ruch(){
 		glowa++;
 		pole[x][y+5]=glowa;
 	}
-	//to samo co u góry tylko w dó³
+	//to samo co u góry tylko w dól
 	if(kierunek=='s'){
 		x++;
 		if(pole[x][y+5]!=0&&pole[x][y+5]!=-1){
@@ -239,7 +264,7 @@ void ruch(){
 		glowa++;
 		pole[x][y+5]=glowa;
 	}
-	//to samo co u góry tylko w górê
+	//to samo co u góry tylko w góre
 	if(kierunek=='w'){
 		x--;
 		if(pole[x][y+5]!=0  &&pole[x][y+5]!=-1){
@@ -271,6 +296,7 @@ void ogonek(){
 
 int main() {
     system("color F0"); //zmienia kolor konsoli
+    start();
 	setup();
 	while(gra){
 		widok();
