@@ -33,7 +33,7 @@ void setup(){
 	//pozycja glowy
 	gloway=y;
 	//gra=1 - czyli gra trwa
-	//gra=1;
+	gra=1;
 	//zaczynamy bez buzi (w klasycznym snake - jablko)
 	buzia=0;
 	//snejk skierowany w prawo gdy rozpoczniemy gre
@@ -55,8 +55,13 @@ void setup(){
 
 //czekamy az gracz zacznie gre
 void start(){
-    printf("\n\n\t\t\t\tNacisnij [enter] by zagrac w gre");
-	printf("\n\n\t\t\t\tNacisnij [escape] by zakonczyc gre");
+    printf("\n\n\t\t\t                    __          \n");
+	printf("\t\t\t .-----.-----.---.-|  |--.-----.\n");
+	printf("\t\t\t |__ --|     |  _  |    <|  -__|\n");
+	printf("\t\t\t |_____|__|__|___._|__|__|_____|\n"); // "\\", bo \ neguje nastepny znak (\n, \t, etc)
+//z https://www.coolgenerator.com/ascii-text-generator
+	printf("\n\n\t\t\tNacisnij [enter] by zagrac w gre");
+	printf("\n\n\t\t\tNacisnij [escape] by zakonczyc gre");
 	//dopóki gra jest "wylaczona"
 	while(1){
 		klawisz=getch_noblock();
@@ -143,10 +148,10 @@ struct buzia{
 };
 //funkcja od buzi, generujaca ja w losowym miejscu
 void random(){
-	//srand, aby za kazdym razem byly inne seedy buzi, time(0), zeby seed sie nie powtarzal
+	//srand, aby za kazdym razem byly inne seedy jablka, time(0), zeby seed sie nie powtarzal
 	srand(time(0));
 	struct buzia punkt;
-	//generuje losowo pozycje buzi w ramkach
+	//generuje losowo pozycje jablka w ramkach
 	punkt.a=1+rand()%(wiersze - 2);
 	punkt.b=1+rand()%(kolumny - 2);
 	//buzia moze sie pojawic tylko wtedy gdy nie ma innych buzi i miejsce jest puste(nie ma w nim np snejka)
@@ -160,26 +165,26 @@ void random(){
 void gameover(){
 	printf("\a"); //alert dzwiekowy
 	system("cls");
-	//wyœwietlanie wyniku
-	printf("\n\n\t\t\t                                                        __\n");
-	printf("\t\t\t .-----.---.-.--------.-----.   .-----.--.--.-----.----|  |\n");
-	printf("\t\t\t |  _  |  _  |        |  -__|   |  _  |  |  |  -__|   _|__|\n");
-	printf("\t\t\t |___  |___._|__|__|__|_____|   |_____|\\___/|_____|__| |__|\n"); // "\\", bo \ neguje nastepny znak (\n, \t, etc)
-	printf("\t\t\t |_____| \n"); //z https://www.coolgenerator.com/ascii-text-generator
+	//wyowietlanie wyniku
+	printf("\n\n\t                                                        __\n");
+	printf("\t .-----.---.-.--------.-----.   .-----.--.--.-----.----|  |\n");
+	printf("\t |  _  |  _  |        |  -__|   |  _  |  |  |  -__|   _|__|\n");
+	printf("\t |___  |___._|__|__|__|_____|   |_____|\\___/|_____|__| |__|\n"); // "\\", bo \ neguje nastepny znak (\n, \t, etc)
+	printf("\t |_____| \n"); //z https://www.coolgenerator.com/ascii-text-generator
 	//zapisujemy wynik
 	if(wynik>maxwynik){
-		printf("\n\n\t\t\t\tGratulacje! Najwyzszy wynik!");
+		printf("\n\n\t\tGratulacje! Najwyzszy wynik!");
 		plik=fopen("maxwynik.txt","w");
 		fprintf(plik,"%d",wynik);
 		fclose(plik);
 	}
 	if(wynik>=100){
-	printf("\n\n\t\t\t\tWynik: %d. Gratulacje",wynik);}
+	printf("\n\n\t\tWynik: %d. Gratulacje",wynik);}
 	else{
-	printf("\n\n\t\t\t\tWynik: %d",wynik);}
+	printf("\n\n\t\tWynik: %d",wynik);}
 
-	printf("\n\n\t\t\t\tNacisnij [enter] by zagrac znowu");
-	printf("\n\n\t\t\t\tNacisnij [escape] by zakonczyc gre");
+	printf("\n\n\t\tNacisnij [enter] by zagrac znowu");
+	printf("\n\n\t\tNacisnij [escape] by zakonczyc gre");
 	//dopóki gra jest "wylaczona"
 	while(1){
 		klawisz=getch_noblock();
@@ -221,7 +226,7 @@ void ruch(){
 		if(y+5==kolumny){
 			gameover();
 		}
-		//jeœli snejk trafi w buzie to ogon zwieksza sie o jeden i wynik zwieksza sie o 5
+		//jeoli snejk trafi w buzie to ogon zwieksza sie o jeden i wynik zwieksza sie o 5
 		if(pole[x][y+5]==-1){
 			buzia=0;
 			ogon--;
@@ -295,7 +300,7 @@ void ogonek(){
 }
 
 int main() {
-    system("color F0"); //zmienia kolor konsoli
+    system("color 02"); //zmienia kolor konsoli
     start();
 	setup();
 	while(gra){
@@ -304,8 +309,6 @@ int main() {
 		random();
 		ruch();
 		ogonek();
-		//sleep spowalnia snejka, upraszczajac gre
-		Sleep(5);
 	}
 	return 0;
 }
