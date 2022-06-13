@@ -1,4 +1,4 @@
-## Snake napisany w C++
+## Snake napisany w C
 Projekt zaliczeniowy na przedmiot Wstęp Do Programowania, rok 2021/2022
 
 Projekt jest umieszczony na [githubie](https://github.com/karina-janus/snake-c).
