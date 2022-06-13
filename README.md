@@ -12,14 +12,14 @@ Projekt jest umieszczony na [githubie](https://github.com/karina-janus/snake-c).
 
 
 ### O projekcie:
-Projekt to odwzorowanie klasycznej gry - Snake - w C++. Gra jest stworzona przy użyciu biblioteki [conio](https://en.wikipedia.org/wiki/Conio.h), 
+Projekt to odwzorowanie klasycznej gry - Snake - w C. Gra jest stworzona przy użyciu biblioteki [conio](https://en.wikipedia.org/wiki/Conio.h), 
 przy pomocy której wyświetlamy grę na ekranie konsoli. Sama gra jest prosta: zaczynamy z wężem długim na 5 segmentów. Jedząc buźki (w oryginale jabłka) 
 zwiększamy rozmiar węża. Jeśli wjedziemy w ramę gry lub w samego węża przegrywamy.
 Na koniec gry wyświetla się nasz wynik i jest on porównywany z zapisanym (w pliku maxwynik.txt) największym wynikiem. Jeśli aktualny wynik jest większy od poprzedniego, lub większy 
 od 100, program wyświetla gratulacje.
 
 ### Instrukcje:
-Kod źródłowy programu znajduje się w pliku **main.cpp**. Program wykorzystuje bibliotekę [conio](https://en.wikipedia.org/wiki/Conio.h), więc działa wyłącznie na windowsie i nie będzie mógł się skompilować na innych systemach operacyjnych.
+Kod źródłowy programu znajduje się w pliku **projekt.cpp**. Program wykorzystuje bibliotekę [conio](https://en.wikipedia.org/wiki/Conio.h), więc działa wyłącznie na windowsie i nie będzie mógł się skompilować na innych systemach operacyjnych.
 Skompilowany, gotowy do uruchomienia program jest w pliku **snake.exe**.
 
 ### Screenshoty:
