@@ -55,7 +55,7 @@ Game Over:
 
 ### Pliki:
 
-- main.cpp - plik zawierający kod źródłowy
+- projekt.cpp - plik zawierający kod źródłowy
 - gameIcon.ico - ikona gry
 - resource.rc - plik zasobów (ustawia ikonę gry)
 - snake.exe - skompilowana gra
