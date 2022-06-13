@@ -143,11 +143,11 @@ struct buzia{
 };
 //funkcja od buzi, generujaca ja w losowym miejscu
 void random(){
-	//srand, aby za kazdym razem byly inne seedy jablka, time(0), zeby seed sie nie powtarzal
+	//srand, aby za kazdym razem byly inne seedy buzi, time(0), zeby seed sie nie powtarzal
 	srand(time(0));
 	struct buzia punkt;
-	//generuje losowo pozycje jablka w ramkach
-	punkt.a +rand()%(wiersze - 2);
+	//generuje losowo pozycje buzi w ramkach
+	punkt.a=1+rand()%(wiersze - 2);
 	punkt.b=1+rand()%(kolumny - 2);
 	//buzia moze sie pojawic tylko wtedy gdy nie ma innych buzi i miejsce jest puste(nie ma w nim np snejka)
 	if(buzia==0 && pole[punkt.a][punkt.b]==0){
